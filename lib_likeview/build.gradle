@@ -25,4 +25,29 @@ dependencies {
 }
 
 
-apply from: './mvn-push.gradle'
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+//                from components.release
+                groupId = 'com.cody.likeview'
+                artifactId = 'likeview'
+                version = '1.0'
+            }
+        }
+        repositories {
+            maven {
+                def baseUrl = buildDir.getParent()
+                def releaseRepoUrl = "$baseUrl/repos/releases"
+                def snapshotsRepoUrl =  "$baseUrl/repos/snapshots"
+                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl: releaseRepoUrl
+            }
+        }
+    }
+}
+
+task generateSourcesJar(type: Jar){
+    from android.sourceSets.main.java.srcDirs
+    classifier  'sources'
+}
