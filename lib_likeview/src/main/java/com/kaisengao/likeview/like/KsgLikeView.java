@@ -176,9 +176,17 @@ public class KsgLikeView extends AnimationLayout {
     private PointF getTogglePoint(int scale) {
         PointF pointf = new PointF();
         // 减去100 是为了控制 x轴活动范围
-        pointf.x = mRandom.nextInt((mViewWidth - 100));
+        int mW = mViewWidth - 100;
+        if (mW <= 0 ) {
+            mW = 50;
+        }
+        int mH = mViewHeight - 100;
+        if(mH <= 0) {
+            mH = 50;
+        }
+        pointf.x = mRandom.nextInt(mW);
         // 再Y轴上 为了确保第二个控制点 在第一个点之上,我把Y分成了上下两半
-        pointf.y = (float) mRandom.nextInt((mViewHeight - 100)) / scale;
+        pointf.y = (float) mRandom.nextInt(mH) / scale;
         return pointf;
     }
 }
