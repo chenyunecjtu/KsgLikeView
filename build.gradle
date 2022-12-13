@@ -14,6 +14,24 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
+    ext {
+        POM_NAME = 'likeview'
+        POM_DESCRIPTION = 'Android 贝塞尔曲线点赞飘心动画效果'
+        POM_URL = 'https://github.com/chenyunecjtu/KsgLikeView'
+        POM_SCM_URL = 'https://github.com/chenyunecjtu/KsgLikeView'
+        POM_SCM_CONNECTION = 'https://github.com/chenyunecjtu/KsgLikeView.git'
+        POM_SCM_DEV_CONNECTION = 'https://github.com/chenyunecjtu/KsgLikeView.git'
+        POM_LICENCE_NAME = 'The Apache Software License, Version 2.0'
+        POM_LICENCE_URL = 'http://www.apache.org/licenses/LICENSE-2.0'
+        POM_LICENCE_DIST = 'repo'
+        POM_DEVELOPER_ID = 'cody'
+        POM_DEVELOPER_NAME = 'cody'
+        POM_PACKAGING = 'aar'
+        POM_ARTIFACT_ID = 'likeview'
+        VERSION_NAME = '1.0.0'
+        VERSION_CODE = 1
+        GROUP = 'com.cody.likeview'
+    }
 }
 
 allprojects {
